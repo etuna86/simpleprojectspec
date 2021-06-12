@@ -117,6 +117,7 @@ return(
                         <Link to="pagetwo">{t("pageTwo")}</Link>
                         <Link to="pagethree">{t("pageThree")}</Link>
                         <Link to="pagefour">{t("pageFour")}</Link>
+                        <Link to="contactus">{t("contactUs")}</Link>
                     </ul>
                 </div>
             </div>
@@ -142,20 +143,20 @@ return(
             <Form >
                 <h4>{t('logIn')}</h4>  
                 <Form.Group controlId="name">
-                    <Form.Label>{t('name')}</Form.Label>
-                    <Form.Control  type="text" placeholder="Name" value={name} onChange={(e)=>changeName(e)}  required/>
+                    <Form.Label className="mt-3">{t('name')}</Form.Label>
+                    <Form.Control  type="text" placeholder={t('name')} value={name} onChange={(e)=>changeName(e)}  required/>
                 </Form.Group>
                 <Form.Group controlId="email">
-                    <Form.Label>{t('email')}</Form.Label>
-                    <Form.Control  type="email" placeholder="E-mail"  value={email} onChange={(e)=>changeEmail(e)}  required/>
+                    <Form.Label className="mt-3">{t('email')}</Form.Label>
+                    <Form.Control  type="email" placeholder={t('email')} value={email} onChange={(e)=>changeEmail(e)}  required/>
                 </Form.Group>
 
                 <Form.Group controlId="loginpass">
-                    <Form.Label>{t('password')}</Form.Label>
+                    <Form.Label className="mt-3">{t('password')}</Form.Label>
                     <Form.Control  type="password" placeholder={t('password')}  value={password} onChange={(e)=>changePassword(e)} required />
                 </Form.Group>
                 <Form.Group controlId="locateselector">
-                    <Form.Label>{t('location')}</Form.Label>
+                    <Form.Label className="mt-3">{t('location')}</Form.Label>
                     <Form.Control as="select"  onChange={(e)=>changeLocate(e)} defaultValue={country_code} >
                         {country.map((item)=> {
                             return(<option key={item.id} value={item.id} >{item.name}</option> ) 

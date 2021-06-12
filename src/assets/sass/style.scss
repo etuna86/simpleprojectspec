@@ -138,6 +138,14 @@ header{
 }
 
 
+
+.form-section{
+    background-color: $whiteColor;
+    padding: 30px;
+    @include borderRadius(5px);
+    @include boxShadow();
+   
+}
 .link-button{
   background: none !important;
   color:$blackColor !important;
