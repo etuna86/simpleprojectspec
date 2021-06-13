@@ -30,10 +30,13 @@ function Header(props){
     const [ email, setEmail ] = useState("");
     const [ country_code, setCountry_Code ] = useState("TR");
     const [ password, setPassword ] = useState("");
+    const [ open, setOpen ] = useState(false);
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    
 
     const userSide=()=>{
         return(
@@ -105,6 +108,9 @@ const changeEmail=(e)=>{
 const changePassword=(e)=>{
     setPassword(e.target.value)
 }
+const openMenu=()=>{
+    setOpen(!open);
+}
 
 const currentPage=(currentPageName)=>{
     switch (currentPageName) {
@@ -137,13 +143,14 @@ return(
     <>
     <header>
         <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-4 col-10">
                 <div className="logo-section">
                  <h1><i class="fab fa-accusoft"></i> { currentPage(location.pathname)} </h1>
                 </div>
             </div>
-            <div className="col-md-6">
-                <div className="menu">
+            <div className="col-md-6 col-2">
+                <button className="mobile-menu-btn d-block d-sm-none" onClick={openMenu}> <i class="fas fa-bars"></i></button>
+                <div className={"menu"}>
                     <ul>
                         <Link to="/">{t("homePage")}</Link>
                         <Link to={{
@@ -158,8 +165,27 @@ return(
                     </ul>
                 </div>
             </div>
-
-            <div className="col-md-2">
+            <div className="col-12 d-block d-sm-none">
+            <div className={open==false ? "mobile-menu  " : "mobile-menu open"}>
+                    <ul>
+                        <Link to="/">{t("homePage")}</Link>
+                        <Link to={{
+                            pathname:"pageone",
+                            state:{
+                                pageName:"pageOne"
+                            }}}>{t("pageOne")}</Link>
+                        <Link to="pagetwo">{t("pageTwo")}</Link>
+                        <Link to="pagethree">{t("pageThree")}</Link>
+                        <Link to="pagefour">{t("pageFour")}</Link>
+                        <Link to="contactus">{t("contactUs")}</Link>
+                    </ul>
+                    <div className="menu-bottom" >
+                    <SwitchLanguage />  
+                    {userSide()}
+                </div>
+                </div>
+            </div>                
+            <div className="col-md-2 col-sm-6 d-none d-sm-block">
                 <SwitchLanguage />  
                 {userSide()}
             </div>
