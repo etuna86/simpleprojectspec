@@ -1,8 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button,Modal,Form,DropdownButton,Dropdown,Alert } from 'react-bootstrap';
+import Select from 'react-select'
 import Header from '../layouts/header'
 import Footer from '../layouts/footer'
+
 
 const countryList = [
 	{ id: "TR", name: "Turkey" },
@@ -15,7 +17,7 @@ const countryList = [
 	{ id: "ZW", name: "Zimbabwe" }
 ]
 
-
+//const selectCountry=[];
 
 function contactUs(){
 
@@ -42,8 +44,8 @@ function contactUs(){
     //const [ phoneControl, setPhoneControl ] = useState('');
 
     useEffect(() => {
-        setCountry(countryList);
-        
+        //setCountry(countryList);
+        createSelectData();
       },
 []);
 
@@ -129,6 +131,15 @@ const changeText=(e)=>{
     setText(e.target.value)
 }
 
+
+const createSelectData=()=>{
+    countryList.forEach((element)=>{
+        country.push({label:`${element.name}`,value:`${element.id}`});
+    })
+
+  }
+
+
 const emailC=()=>{
     if(emailControl !==2){
         if(emailControl ==0){
@@ -141,7 +152,11 @@ const emailC=()=>{
     return emailClass
      
 }
-
+const handleChange = (data) => {
+    //setSelectedOptions(options);
+    console.warn("selectedOptions: ",data);
+    setCountry_Code(data.value);
+  };
 return(
     <>
     <Header />
@@ -175,11 +190,7 @@ return(
                     </Form.Group>
                     <Form.Group controlId="clocateselector">
                         <Form.Label className="mt-3">{t('location')}</Form.Label>
-                        <Form.Control as="select"  onChange={(e)=>changeLocate(e)} defaultValue={country_code} >
-                            {country.map((item)=> {
-                                return(<option key={item.id} value={item.id} >{item.name}</option> ) 
-                            }  )}
-                        </Form.Control>
+                        <Select options={country} onChange={handleChange} defaultValue={{ label: "Turkey", value: 'TR' }} />
                     </Form.Group>
 
                     <Form.Group controlId="ctext"  className="mt-3">
