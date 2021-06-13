@@ -137,14 +137,31 @@ header{
   }
 }
 
-
-
+.red-border{
+    border:1px solid red;
+    &:focus{
+        border:1px solid red;
+        box-shadow: 0 0 0 0.25rem rgb(253 13 13 / 25%);
+    }
+}
+.green-border{
+    border:1px solid green;
+    &:focus{
+        border:1px solid green;
+        box-shadow: 0 0 0 0.25rem rgb(0 255 8 / 25%);
+    }
+}
 .form-section{
     background-color: $whiteColor;
     padding: 30px;
     @include borderRadius(5px);
     @include boxShadow();
    
+}
+.danger-message{
+    color:red;
+    margin:5px 0px;
+    font-size:12px;
 }
 .link-button{
   background: none !important;

@@ -1,4 +1,5 @@
-{
+{	
+	"webSite":"Website Name",
 	"homePage":"Homepage",
 	"pageOne":"page One",
 	"pageTwo":"page Two",
@@ -14,6 +15,9 @@
 	"message":"Message",
 	"password":"Password",
 	"location":"Location",
+	"emailErrorMessage":"Please enter a valid email address.",
+	"nameErrorMessage":"Please enter a valid name. (must be at least 4 characters)",
+	"phoneErrorMessage":"Please enter a valid phone number.",
 	"send":"Send",
 	"pageOneTitle":"Page One Title",
 	"pageOneContent":"Page one content",

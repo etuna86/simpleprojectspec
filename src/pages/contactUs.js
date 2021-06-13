@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import Header from '../layouts/header'
 import { useTranslation } from 'react-i18next'
-import { Button,Modal,Form,DropdownButton,Dropdown } from 'react-bootstrap';
+import { Button,Modal,Form,DropdownButton,Dropdown,Alert } from 'react-bootstrap';
 
 
 const countryList = [
@@ -28,6 +28,19 @@ function contactUs(){
     const [ country_code, setCountry_Code ] = useState("TR");
     const [ text, setText ] = useState("");
 
+    const [ emailClass, setEmailClass ] = useState('');
+    const [ phoneClass, setPhoneClass ] = useState('');
+
+    const [ emailControl, setEmailControl ] = useState(false);
+    const [ phoneControl, setPhoneControl ] = useState(false);
+
+    const [ nameControl, setNameControl ] = useState(false);
+
+    const [ emailErrorMessage, setEmailErrorMessage ] = useState(false);
+    const [ phoneErrorMessage, setPhoneErrorMessage ] = useState(false);
+    const [ nameErrorMessage, setNameErrorMessage ] = useState(false);
+    //const [ phoneControl, setPhoneControl ] = useState('');
+
     useEffect(() => {
         setCountry(countryList);
         
@@ -40,12 +53,34 @@ const sendForm=()=>{
     let contactInfo={
         "name": name,
         "email": email,
-        "phone": phone,
+        "phonenumber": phone,
         "country_code": country_code,
-        "text": texts,
+        "text": text,
     }
-    console.warn("UserInfo: ",contactInfo);
+if(name!=='' && name.length >= 4){
+    setNameErrorMessage(false);
+    if(emailControl){
+        setEmailErrorMessage(false);
+         if(phoneControl){
+             
+            console.warn("UserInfo: ",contactInfo);
+            setPhoneErrorMessage(false);
+            //axios
+         }
+         else{
+            setPhoneErrorMessage(true);
+         }
+     }
+     else{
+        setEmailErrorMessage(true);
+     }
+}
+else{
+    setNameErrorMessage(true);
+}
 
+
+    //console.warn("UserInfo: ",contactInfo);
 }
 
 
@@ -58,13 +93,65 @@ const changeName=(e)=>{
 }
 
 const changeEmail=(e)=>{
+   
     setEmail(e.target.value)
+    const regex = /\S+@\S+/;
+    var validEmail = regex.test(String(e.target.value).toLowerCase());
+   if(validEmail){
+    setEmailClass('green-border');
+    setEmailControl(true);
+    console.warn("true");
+   }
+   else{
+        console.warn("false");
+        setEmailControl(false);
+        setEmailClass('red-border');
+   }
+   
 }
 const changePhone=(e)=>{
     setPhone(e.target.value)
+
+
+    if (e.target.value !== "undefined") {
+        var pattern = new RegExp(/^[0-9\b]+$/);
+      
+        if (!pattern.test(e.target.value)) {
+          setPhoneClass('red-border');
+          console.warn("phone false");
+          setPhoneControl(false);
+          //errors["phone"] = "Please enter only number.";
+      
+        }else if(e.target.value.length != 10){
+          setPhoneClass('red-border');
+          setPhoneControl(false);
+          console.warn("phone false");
+          //errors["phone"] = "Please enter valid phone number.";
+      
+        }
+        else{
+            console.warn("phone true");
+            setPhoneClass('green-border');
+            setPhoneControl(true);
+        }
+      
+      }
 }
 const changeText=(e)=>{
     setText(e.target.value)
+}
+
+const emailC=()=>{
+    if(emailControl !==2){
+        if(emailControl ==0){
+            setEmailClass('red-border');
+        }
+        else if(emailControl ==1){
+            setEmailClass('green-border');
+        }
+    }
+    return emailClass
+     
 }
 
 return(
@@ -80,14 +167,23 @@ return(
                     <Form.Group controlId="cname">
                         <Form.Label className="mt-3">{t('name')}</Form.Label>
                         <Form.Control  type="text" placeholder={t("name")} value={name} onChange={(e)=>changeName(e)}  required/>
+                        <div className={nameErrorMessage==false ? 'd-none' : 'danger-message'} >
+                            {t('nameErrorMessage')}
+                        </div>
                     </Form.Group>
                     <Form.Group controlId="cemail">
                         <Form.Label className="mt-3">{t('email')}</Form.Label>
-                        <Form.Control  type="email" placeholder={t("email")}  value={email} onChange={(e)=>changeEmail(e)}  required/>
+                        <Form.Control   className={emailClass}  type="email" placeholder={t("email")}  value={email} onChange={(e)=>changeEmail(e)}  required/>
+                        <div className={emailErrorMessage==false ? 'd-none' : 'danger-message'} >
+                            {t('emailErrorMessage')}
+                        </div>
                     </Form.Group>
                     <Form.Group controlId="cphone">
                         <Form.Label className="mt-3">{t('phone')}</Form.Label>
-                        <Form.Control  type="phone" placeholder={t("phone")}   value={phone} onChange={(e)=>changePhone(e)}  required/>
+                        <Form.Control maxLength="10"  className={phoneClass}  pattern="[0-9]*"  type="phone" placeholder={t("phone")}   value={phone} onChange={(e)=>changePhone(e)}  required/>
+                        <div className={phoneErrorMessage==false ? 'd-none' : 'danger-message'} >
+                            {t('phoneErrorMessage')}
+                        </div>
                     </Form.Group>
                     <Form.Group controlId="clocateselector">
                         <Form.Label className="mt-3">{t('location')}</Form.Label>

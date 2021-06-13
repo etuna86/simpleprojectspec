@@ -1,4 +1,5 @@
 {
+	"webSite":"Websitesi Adı",
 	"homePage":"Ana Sayfa",
 	"pageOne":"Sayfa Bir",
 	"pageTwo":"Sayfa  İki",
@@ -14,6 +15,9 @@
 	"message":"Mesajınız",
 	"password":"Şifre",
 	"location":"Lokasyon",
+	"emailErrorMessage":"Lütfen geçerli bir E-posta adresi giriniz.",
+	"nameErrorMessage":"Lütfen geçerli bir isim girin. (en az 4 karakter)",
+	"phoneErrorMessage":"Lütfen geçerli bir telefon numarası giriniz.",
 	"send":"Gönder",
 	"pageOneTitle":"Sayfa Bir Başlık ",
 	"pageOneContent":"Sayfa bir içerik yazısı",

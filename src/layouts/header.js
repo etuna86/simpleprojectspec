@@ -92,13 +92,46 @@ const changeName=(e)=>{
 
 const changeEmail=(e)=>{
     setEmail(e.target.value)
+
+
+    const expression = /\S+@\S+/;
+    var validEmail = expression.test(String(email).toLowerCase());
+   if(validEmail)
+       console.warn("true");
+   else
+        console.warn("false");
 }
 
 const changePassword=(e)=>{
     setPassword(e.target.value)
 }
 
+const currentPage=(currentPageName)=>{
+    switch (currentPageName) {
+        case '/':
+            return t('webSite')
+            break;
+        case '/pageone':
+            return t('pageOne')
+            break;
+        case '/pagetwo':
+            return t('pageTwo')
+            break;
+        case '/pagethree':
+            return t('pageThree')
+            break;
+        case '/pagefour':
+            return t('pageFour')
+            break;
+            case '/contactus':
+                return t('contactUs')
+                break;
+        default:
+            return t('homePage')
+            break;
+    }
 
+}
 
 return(
     <>
@@ -106,14 +139,18 @@ return(
         <div className="row">
             <div className="col-md-4">
                 <div className="logo-section">
-                    <h1>{location.pathname}  {t("homePage")}</h1>
+                    <h1>{ currentPage(location.pathname)} </h1>
                 </div>
             </div>
             <div className="col-md-6">
                 <div className="menu">
                     <ul>
                         <Link to="/">{t("homePage")}</Link>
-                        <Link to="pageone">{t("pageOne")}</Link>
+                        <Link to={{
+                            pathname:"pageone",
+                            state:{
+                                pageName:"pageOne"
+                            }}}>{t("pageOne")}</Link>
                         <Link to="pagetwo">{t("pageTwo")}</Link>
                         <Link to="pagethree">{t("pageThree")}</Link>
                         <Link to="pagefour">{t("pageFour")}</Link>
