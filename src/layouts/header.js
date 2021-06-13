@@ -143,12 +143,12 @@ return(
     <>
     <header>
         <div className="row">
-            <div className="col-md-4 col-10">
+            <div className="col-md-3 col-10">
                 <div className="logo-section">
                  <h1><i class="fab fa-accusoft"></i> { currentPage(location.pathname)} </h1>
                 </div>
             </div>
-            <div className="col-md-6 col-2">
+            <div className="col-md-7 col-2">
                 <button className="mobile-menu-btn d-block d-sm-none" onClick={openMenu}> <i class="fas fa-bars"></i></button>
                 <div className={"menu"}>
                     <ul>
