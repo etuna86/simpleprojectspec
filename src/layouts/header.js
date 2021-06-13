@@ -62,12 +62,7 @@ function Header(props){
     }
 
     const login = ()=>{  
-        let UserInfo={
-            "name": name,
-            "email": email,
-            "password": password,
-            "country_code": country_code
-        }
+
         
 
 
@@ -77,7 +72,14 @@ function Header(props){
             if(emailControl){
                 setEmailErrorMessage(false);
 
-                if(password!=='' && name.length >= 4){
+                if(password!=='' && password.length >= 6){
+
+                    let UserInfo={
+                        "name": name,
+                        "email": email,
+                        "password": password,
+                        "country_code": country_code
+                    }
                     setPassErrorMessage(true); 
                     
                     UpdateUser(name);
@@ -103,16 +105,13 @@ function Header(props){
 
 
     }
-    const logOut =()=>{
-        
+    const logOut =()=>{       
         setEmail("");
         setUserName("");
         setName("");
         setPassword("");
         setCountry_Code("TR")
-
-        UpdateUser("");
-        
+        UpdateUser("");   
     }
 
     useEffect(() => {

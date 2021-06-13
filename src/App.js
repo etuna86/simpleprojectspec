@@ -24,17 +24,11 @@ class App extends Component {
 
 
 componentDidMount(){
-/*
-  if(customHistory=='/'){
-    customHistory.push("/");
-  }
-  customHistory.push("/"); */
+
 }
   render(){
     return (  
       <Suspense fallback={null}>
-   
- 
           <Router history={customHistory}>
             <Switch>
               <Route exact path="/">
