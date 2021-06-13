@@ -10,7 +10,6 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
-    //host: "therawylogin.local",
     historyApiFallback: true,
   },
   plugins: [
