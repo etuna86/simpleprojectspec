@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react'
-import Header from '../layouts/header'
 import { useTranslation } from 'react-i18next'
 import { Button,Modal,Form,DropdownButton,Dropdown,Alert } from 'react-bootstrap';
-
+import Header from '../layouts/header'
+import Footer from '../layouts/footer'
 
 const countryList = [
 	{ id: "TR", name: "Turkey" },
@@ -158,7 +158,7 @@ return(
     <>
     <Header />
     <div className="homepage container-fluid">
-    <div className="bg-half-grey"></div>
+    
         <div className="row justify-content-center">
             <div className="col-6 ">
                 <div className="form-section">
@@ -207,6 +207,7 @@ return(
         </div>
         
     </div>
+    <Footer />
     </>
 );
 

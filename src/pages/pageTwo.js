@@ -1,6 +1,7 @@
 import React from 'react'
-import Header from '../layouts/header'
 import { useTranslation } from 'react-i18next'
+import Header from '../layouts/header'
+import Footer from '../layouts/footer'
 
 function pageTwo(){
 
@@ -10,7 +11,7 @@ return(
     <>
     <Header />
     <div className="homepage container-fluid">
-    <div className="bg-half-grey"></div>
+    
         <div className="row justify-content-center">
             <div className="col-6 ">
                 <div className="homepage-title">
@@ -22,6 +23,7 @@ return(
         </div>
         
     </div>
+    <Footer />
     </>
 );
 

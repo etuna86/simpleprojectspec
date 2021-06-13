@@ -139,7 +139,7 @@ return(
         <div className="row">
             <div className="col-md-4">
                 <div className="logo-section">
-                    <h1>{ currentPage(location.pathname)} </h1>
+                 <h1><i class="fab fa-accusoft"></i> { currentPage(location.pathname)} </h1>
                 </div>
             </div>
             <div className="col-md-6">
@@ -173,8 +173,9 @@ return(
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
+        <Modal.Header >
           <Modal.Title>{t('logIn')}</Modal.Title>
+          <div > <SwitchLanguage />  </div>
         </Modal.Header>
         <Modal.Body>
             <Form >
@@ -192,14 +193,7 @@ return(
                     <Form.Label className="mt-3">{t('password')}</Form.Label>
                     <Form.Control  type="password" placeholder={t('password')}  value={password} onChange={(e)=>changePassword(e)} required />
                 </Form.Group>
-                <Form.Group controlId="locateselector">
-                    <Form.Label className="mt-3">{t('location')}</Form.Label>
-                    <Form.Control as="select"  onChange={(e)=>changeLocate(e)} defaultValue={country_code} >
-                        {country.map((item)=> {
-                            return(<option key={item.id} value={item.id} >{item.name}</option> ) 
-                        }  )}
-                    </Form.Control>
-                </Form.Group>
+
             </Form>
         </Modal.Body>
         <Modal.Footer>
