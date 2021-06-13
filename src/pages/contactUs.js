@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button,Modal,Form,DropdownButton,Dropdown,Alert } from 'react-bootstrap';
+import { Button,Form} from 'react-bootstrap';
 import Select from 'react-select'
 import Header from '../layouts/header'
 import Footer from '../layouts/footer'
@@ -16,8 +16,6 @@ const countryList = [
 	{ id: "BR", name: "Brazil" },
 	{ id: "ZW", name: "Zimbabwe" }
 ]
-
-//const selectCountry=[];
 
 function contactUs(){
 
@@ -41,10 +39,8 @@ function contactUs(){
     const [ emailErrorMessage, setEmailErrorMessage ] = useState(false);
     const [ phoneErrorMessage, setPhoneErrorMessage ] = useState(false);
     const [ nameErrorMessage, setNameErrorMessage ] = useState(false);
-    //const [ phoneControl, setPhoneControl ] = useState('');
 
     useEffect(() => {
-        //setCountry(countryList);
         createSelectData();
       },
 []);
@@ -153,7 +149,6 @@ const emailC=()=>{
      
 }
 const handleChange = (data) => {
-    //setSelectedOptions(options);
     console.warn("selectedOptions: ",data);
     setCountry_Code(data.value);
   };

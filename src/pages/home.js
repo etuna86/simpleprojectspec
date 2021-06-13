@@ -1,6 +1,4 @@
 import React from 'react'
-import { Container,Row,Col,Form,Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 import Header from '../layouts/header'
 import Footer from '../layouts/footer'

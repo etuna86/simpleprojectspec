@@ -63,25 +63,18 @@ function Header(props){
 
     const login = ()=>{  
 
-        
-
-
-
         if(name!=='' && name.length >= 4){
             setNameErrorMessage(false);
             if(emailControl){
                 setEmailErrorMessage(false);
-
                 if(password!=='' && password.length >= 6){
-
                     let UserInfo={
                         "name": name,
                         "email": email,
                         "password": password,
                         "country_code": country_code
                     }
-                    setPassErrorMessage(true); 
-                    
+                    setPassErrorMessage(true);          
                     UpdateUser(name);
                     UpdateEmail(email);
                     setUserName(props.USERNAME);
@@ -102,8 +95,6 @@ function Header(props){
             setNameErrorMessage(true);
         }
         
-
-
     }
     const logOut =()=>{       
         setEmail("");
@@ -122,8 +113,6 @@ function Header(props){
       },
 [i18next.language,props.USERNAME]);
 
-
-
 const changeLocate=(e)=>{
     setCountry_Code(e.target.value)
 }
@@ -134,8 +123,6 @@ const changeName=(e)=>{
 
 const changeEmail=(e)=>{
     setEmail(e.target.value)
-
-
     const expression = /\S+@\S+/;
     var validEmail = expression.test(String(e.target.value).toLowerCase());
    if(validEmail)
@@ -288,8 +275,6 @@ return(
 
 }
 
-
-//export default Header;
 const mapStateToProps = (state, ownProps) => ({
     USERNAME: state.reducer1.userName,
     USEREMAIL: state.reducer1.userEmail,

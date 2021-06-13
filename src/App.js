@@ -1,6 +1,5 @@
 import React,{Component,FC,Suspense}  from 'react';
-import { Container,Row,Col } from 'react-bootstrap';
-import { BrowserRouter,Router,Switch, Route, Link,withRouter  } from "react-router-dom";
+import { Router,Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 let customHistory = createBrowserHistory();
 import Home from './pages/home';
@@ -10,22 +9,13 @@ import PageThree from './pages/pageThree';
 import PageFour from './pages/pageFour';
 import ContactUs from './pages/contactUs';
 import './i18n'
-import { useTranslation } from 'react-i18next'
-import i18next from 'i18next'
 
 class App extends Component {
   constructor(props){
     super(props);
-      this.state={
-        userAuth:false,
-      }
 
 }
 
-
-componentDidMount(){
-
-}
   render(){
     return (  
       <Suspense fallback={null}>
