@@ -17,6 +17,7 @@
 	"location":"Location",
 	"emailErrorMessage":"Please enter a valid email address.",
 	"nameErrorMessage":"Please enter a valid name. (must be at least 4 characters)",
+	"passErrorMessage":"Please enter a valid password. (must be at least 6 characters)",
 	"phoneErrorMessage":"Please enter a valid phone number.",
 	"send":"Send",
 	"pageOneTitle":"Page One Title",

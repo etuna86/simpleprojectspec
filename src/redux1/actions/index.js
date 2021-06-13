@@ -10,11 +10,11 @@ export function UpdateUser(newUserName) {
 }
 
 
-export function UpdateAvatar(newUsername) {
+export function UpdateEmail(newEmail) {
     store.dispatch({
-        type: 'UpdateAvatar',
+        type: 'UpdateEmail',
         payload: {
-            accountAvatar: newUsername
+            userEmail: newEmail
         }
     });
 }

@@ -17,6 +17,7 @@
 	"location":"Lokasyon",
 	"emailErrorMessage":"Lütfen geçerli bir E-posta adresi giriniz.",
 	"nameErrorMessage":"Lütfen geçerli bir isim girin. (en az 4 karakter)",
+	"passErrorMessage":"Lütfen geçerli bir şifre girin. (en az 6 karakter)",
 	"phoneErrorMessage":"Lütfen geçerli bir telefon numarası giriniz.",
 	"send":"Gönder",
 	"pageOneTitle":"Sayfa Bir Başlık ",

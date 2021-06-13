@@ -62,7 +62,6 @@ if(name!=='' && name.length >= 4){
     if(emailControl){
         setEmailErrorMessage(false);
          if(phoneControl){
-             
             console.warn("UserInfo: ",contactInfo);
             setPhoneErrorMessage(false);
             //axios
@@ -79,8 +78,6 @@ else{
     setNameErrorMessage(true);
 }
 
-
-    //console.warn("UserInfo: ",contactInfo);
 }
 
 
@@ -100,10 +97,8 @@ const changeEmail=(e)=>{
    if(validEmail){
     setEmailClass('green-border');
     setEmailControl(true);
-    console.warn("true");
    }
    else{
-        console.warn("false");
         setEmailControl(false);
         setEmailClass('red-border');
    }
@@ -118,19 +113,12 @@ const changePhone=(e)=>{
       
         if (!pattern.test(e.target.value)) {
           setPhoneClass('red-border');
-          console.warn("phone false");
           setPhoneControl(false);
-          //errors["phone"] = "Please enter only number.";
-      
         }else if(e.target.value.length != 10){
           setPhoneClass('red-border');
           setPhoneControl(false);
-          console.warn("phone false");
-          //errors["phone"] = "Please enter valid phone number.";
-      
         }
         else{
-            console.warn("phone true");
             setPhoneClass('green-border');
             setPhoneControl(true);
         }

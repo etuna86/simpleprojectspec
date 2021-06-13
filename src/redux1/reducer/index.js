@@ -4,15 +4,15 @@
 
 var initialState = {
     userName: '',
-    accountAvatar:'',
+    userEmail:'',
 };
 
 export default function reducer1(state = initialState, action) {
     switch (action.type) {
         case 'UpdateUser':
             return Object.assign({}, state, { userName: action.payload.userName });
-        case 'UpdateAvatar':
-            return Object.assign({}, state, { accountAvatar: action.payload.accountAvatar });
+            case 'UpdateEmail':
+                return Object.assign({}, state, { userEmail: action.payload.userEmail });
         default:
             return state;
     }
