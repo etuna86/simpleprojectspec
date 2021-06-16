@@ -45,14 +45,18 @@ function contactUs(props){
         createSelectData();
         getUserDate();
       },
-[props.USEREMAIL]);
+[props.USERNAME]);
 
 
 
 const getUserDate=()=>{
-    if(props.USEREMAIL !="" && props.USEREMAIL !=undefined){
+    if(props.USERNAME !="" && props.USERNAME !=undefined){
         setName(props.USERNAME);
         setEmail(props.USEREMAIL);
+    }
+    else{
+        setName("");
+        setEmail("");
     }
 }
 
@@ -64,9 +68,21 @@ const sendForm=()=>{
         "country_code": country_code,
         "text": text,
     }
+
+    const regex = /\S+@\S+/;
+    var validEmail = regex.test(String(email).toLowerCase());
+   if(validEmail){
+    setEmailClass('green-border');
+    setEmailControl(true);
+   }
+   else{
+        setEmailControl(false);
+        setEmailClass('red-border');
+   }
+
 if(name!=='' && name.length >= 4){
     setNameErrorMessage(false);
-    if(emailControl){
+    if(validEmail){
         setEmailErrorMessage(false);
          if(phoneControl){
             console.warn("UserInfo: ",contactInfo);
