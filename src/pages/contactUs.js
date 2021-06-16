@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button,Form} from 'react-bootstrap';
+import {connect} from 'react-redux';
 import Select from 'react-select'
 import Header from '../layouts/header'
 import Footer from '../layouts/footer'
@@ -17,7 +18,7 @@ const countryList = [
 	{ id: "ZW", name: "Zimbabwe" }
 ]
 
-function contactUs(){
+function contactUs(props){
 
     const {t} =useTranslation();
 
@@ -42,10 +43,18 @@ function contactUs(){
 
     useEffect(() => {
         createSelectData();
+        getUserDate();
       },
-[]);
+[props.USEREMAIL]);
 
 
+
+const getUserDate=()=>{
+    if(props.USEREMAIL !="" && props.USEREMAIL !=undefined){
+        setName(props.USERNAME);
+        setEmail(props.USEREMAIL);
+    }
+}
 
 const sendForm=()=>{
     let contactInfo={
@@ -208,4 +217,9 @@ return(
 }
 
 
-export default contactUs;
+const mapStateToProps = (state, ownProps) => ({
+    USERNAME: state.reducer1.userName,
+    USEREMAIL: state.reducer1.userEmail,
+})
+
+export default connect(mapStateToProps)(contactUs);
