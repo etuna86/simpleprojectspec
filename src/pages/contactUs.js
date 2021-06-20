@@ -128,24 +128,35 @@ const changeEmail=(e)=>{
    
 }
 const changePhone=(e)=>{
-    setPhone(e.target.value)
+    
 
 
-    if (e.target.value !== "undefined") {
+    if (e.target.value !== undefined && e.target.value !== "" ) {
         var pattern = new RegExp(/^[0-9\b]+$/);
+        //var pattern = new RegExp(/\[^0-9]/g);
       
         if (!pattern.test(e.target.value)) {
+         
           setPhoneClass('red-border');
           setPhoneControl(false);
+          //setPhone(e.target.value)
+          //return;
         }else if(e.target.value.length != 10){
           setPhoneClass('red-border');
           setPhoneControl(false);
+          setPhone(e.target.value)
         }
         else{
+            
             setPhoneClass('green-border');
             setPhoneControl(true);
+            setPhone(e.target.value)
+              
         }
       
+      }
+      else{
+        setPhone(e.target.value)
       }
 }
 const changeText=(e)=>{

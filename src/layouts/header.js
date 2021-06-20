@@ -8,7 +8,7 @@ import {UpdateUser} from '../redux1/actions'
 import {UpdateEmail} from '../redux1/actions'
 import SwitchLanguage from '../components/SwitchLanguage'
 
-
+/*
 const countryList = [
 	{ id: "TR", name: "Turkey" },
 	{ id: "US", name: "United States of America" },
@@ -19,14 +19,14 @@ const countryList = [
 	{ id: "BR", name: "Brazil" },
 	{ id: "ZW", name: "Zimbabwe" }
 ]
-
+*/
 function Header(props){
     const {t} =useTranslation();
     const location = useLocation();
 
     const [ userName, setUserName ] = useState("");
     const [ userEmail, setUserEmail ] = useState("");
-    const [ country, setCountry ] = useState([]);
+    //const [ country, setCountry ] = useState([]);
 
     const [ name, setName ] = useState("");
     const [ email, setEmail ] = useState("");
@@ -72,7 +72,6 @@ function Header(props){
                         "name": name,
                         "email": email,
                         "password": password,
-                        "country_code": country_code
                     }
                     setPassErrorMessage(true);          
                     UpdateUser(name);
@@ -101,21 +100,22 @@ function Header(props){
         setUserName("");
         setName("");
         setPassword("");
-        setCountry_Code("TR")
+        //setCountry_Code("TR")
         UpdateUser("");   
     }
 
     useEffect(() => {
-        setCountry(countryList);
+        //setCountry(countryList);
         setUserName(props.USERNAME);
         setUserEmail(props.USEREMAIL);
         
       },
 [i18next.language,props.USERNAME]);
 
+/*
 const changeLocate=(e)=>{
     setCountry_Code(e.target.value)
-}
+} */
 
 const changeName=(e)=>{
     setName(e.target.value)
